@@ -47,4 +47,6 @@ jobs:
           paths:
             - node_modules
 
+      - run: cp .env.example .env
+      - run: php artisan key:generate
       - run: vendor/bin/phpunit tests/
