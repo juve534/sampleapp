@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+$prefix = 'v1';
+Route::group(['prefix' => $prefix], function () {
+    Route::get('posts', 'PostsController@index');
+});
