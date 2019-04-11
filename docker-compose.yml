@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./docker/nginx/:/etc/nginx/conf.d/
+      - ./public:/var/www/laravel/public
+    links:
+      - phpfpm
+    depends_on:
+      - phpfpm
+  phpfpm:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/var/www/html
+      - ./docker/phpfpm/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=homestead
+      - DB_USERNAME=root
+      - DB_PASSWORD=pass
+      - PHP_IDE_CONFIG=serverName=phpfpm
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=homestead
