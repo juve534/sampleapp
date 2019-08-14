@@ -13,6 +13,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
         "filp/whoops": "~2.0",
+        "friendsofphp/php-cs-fixer": "^2.15",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0",
@@ -48,6 +49,12 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "cs-check": [
+            "@php ./vendor/bin/php-cs-fixer fix --dry-run --diff --ansi"
+        ],
+        "cs-fix": [
+            "@php ./vendor/bin/php-cs-fixer fix"
         ]
     },
     "config": {
