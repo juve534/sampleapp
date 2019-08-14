@@ -14,5 +14,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Posts extends Model
 {
-    //
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+    }
 }
