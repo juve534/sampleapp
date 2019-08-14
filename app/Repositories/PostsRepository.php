@@ -35,4 +35,17 @@ class PostsRepository implements PostsRepositoryInterface
 
         return $postData->toArray();
     }
+
+    /**
+     * 記事データと紐づくコメントを取得.
+     *
+     * @return array
+     */
+    public function findByIdAndComments(int $id): array
+    {
+        $postData = $this->posts::findOrFail($id);
+        $postData->load('comments');
+
+        return $postData->toArray();
+    }
 }
