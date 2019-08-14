@@ -4,9 +4,9 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Comments::class, function (Faker $faker) {
     return [
-        'commenter' => $faker->kanaName(),
+        'commenter' => $faker->lastName,
         'body'  => $faker->text,
-        'post_id' => function() {
+        'posts_id' => function() {
             return factory(\App\Models\Posts::class)->create()->id;
         }
     ];
