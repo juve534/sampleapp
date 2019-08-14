@@ -22,6 +22,12 @@ test:
 composer:
 	docker-compose exec $(container) composer $(COMMAND)
 
+cs-check:
+	docker-compose exec $(container) composer cs-check
+
+cs-fix:
+	docker-compose exec $(container) composer cs-fix
+
 .PHONY: artisan
 artisan:
 	docker-compose exec $(container) php artisan $(COMMAND)
