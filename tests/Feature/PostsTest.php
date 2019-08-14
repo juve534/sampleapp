@@ -4,11 +4,12 @@ namespace Tests\Feature;
 
 use App\Models\Posts;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostsTest extends TestCase
 {
+    use RefreshDatabase;
+
     const BASE_URL = 'api/v1/posts';
 
     public function testStatusCode()
