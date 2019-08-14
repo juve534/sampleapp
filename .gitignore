@@ -20,3 +20,10 @@ Homestead.json
 .rocketeer/
 
 .idea/
+
+# https://github.com/barryvdh/laravel-ide-helper
+_ide_helper.php
+.phpstorm.meta.php
+
+# php-cs-fixer
+.php_cs.cache

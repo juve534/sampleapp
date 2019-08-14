@@ -20,7 +20,13 @@ test:
 	docker-compose exec $(container) vendor/bin/phpunit tests
 
 composer:
-	docker-compose exec $(container) composer
+	docker-compose exec $(container) composer $(COMMAND)
+
+cs-check:
+	docker-compose exec $(container) composer cs-check
+
+cs-fix:
+	docker-compose exec $(container) composer cs-fix
 
 .PHONY: artisan
 artisan:
