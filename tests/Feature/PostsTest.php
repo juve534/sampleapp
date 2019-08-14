@@ -9,6 +9,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostsTest extends TestCase
 {
+    use RefreshDatabase;
+
     const BASE_URL = 'api/v1/posts';
 
     public function testStatusCode()
