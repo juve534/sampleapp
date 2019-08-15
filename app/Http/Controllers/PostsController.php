@@ -13,12 +13,14 @@ class PostsController extends Controller
     public function index()
     {
         $data = Posts::all();
+
         return JsonResponse::create($data);
     }
 
     public function show(PostsRepository $postsRepository, Request $request)
     {
         $data = $postsRepository->findByIdAndComments((int) $request->id);
+
         return new PostsResource($data);
     }
 }
