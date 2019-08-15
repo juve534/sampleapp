@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Posts newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Posts query()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comments[] $comments
  */
 class Posts extends Model
 {
