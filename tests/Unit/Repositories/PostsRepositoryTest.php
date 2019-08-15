@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Unit\Repositories;
@@ -13,10 +14,12 @@ use Tests\TestCase;
 
 class PostsRepositoryTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     /**
      * findPostsAllの正常系.
+     *
      * @test
      */
     public function testFindAllData()
@@ -42,6 +45,7 @@ class PostsRepositoryTest extends TestCase
 
     /**
      * findByIdAndCommentsの正常系.
+     *
      * @test
      */
     public function testfindByIdAndComments()
@@ -64,6 +68,7 @@ class PostsRepositoryTest extends TestCase
 
     /**
      * findByIdAndCommentsの異常系.
+     *
      * @test
      */
     public function testfindByIdAndCommentsNotData()

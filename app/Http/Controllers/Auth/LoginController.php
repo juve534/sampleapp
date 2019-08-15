@@ -40,9 +40,12 @@ class LoginController extends Controller
     }
 
     /**
-     * ログアウト時に/homeに飛ばしたいため、オーバーライド
+     * ログアウト時に/homeに飛ばしたいため、オーバーライド.
+     *
      * @param Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
      * @see StatefulGuard::logout()
      */
     public function logout(Request $request)
