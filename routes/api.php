@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 $prefix = 'v1';
 Route::group(['prefix' => $prefix], function () {
     Route::get('posts', 'PostsController@index');
+    Route::get('posts/{id}', 'PostsController@show');
 });

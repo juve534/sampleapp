@@ -3,9 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
-use Illuminate\Support\Collection;
 
-class PostsResource extends Resource
+class CommentsResource extends Resource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +16,8 @@ class PostsResource extends Resource
     {
         return [
             'id' => $this->resource['id'],
-            'title' => $this->resource['title'],
+            'commenter' => $this->resource['commenter'],
             'body' => $this->resource['body'],
-            'comments' => new CommentResourceCollection(
-                new Collection($this->resource['comments'])
-            ),
         ];
     }
 }
