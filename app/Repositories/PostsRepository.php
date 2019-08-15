@@ -39,6 +39,8 @@ class PostsRepository implements PostsRepositoryInterface
     /**
      * 記事データと紐づくコメントを取得.
      *
+     * @param int $id
+     *
      * @return array
      */
     public function findByIdAndComments(int $id): array
