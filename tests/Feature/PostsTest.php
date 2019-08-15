@@ -7,16 +7,17 @@ use App\Models\Posts;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Mockery;
 
 class PostsTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     const BASE_URL = 'api/v1/posts';
 
     /**
-     * indexメソッドの正常系
+     * indexメソッドの正常系.
+     *
      * @test
      */
     public function testIndex200()
@@ -31,7 +32,8 @@ class PostsTest extends TestCase
     }
 
     /**
-     * showメソッドの正常系
+     * showメソッドの正常系.
+     *
      * @test
      */
     public function testShow200()

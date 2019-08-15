@@ -9,15 +9,16 @@ class CommentsResource extends Resource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function toArray($request)
     {
         return [
-            'id' => $this->resource['id'],
+            'id'        => $this->resource['id'],
             'commenter' => $this->resource['commenter'],
-            'body' => $this->resource['body'],
+            'body'      => $this->resource['body'],
         ];
     }
 }
