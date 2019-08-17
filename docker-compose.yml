@@ -34,3 +34,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DATABASE=homestead
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
