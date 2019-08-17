@@ -16,7 +16,7 @@ jobs:
       # for database intensive operations.
       - image: circleci/mysql:5.7.23
       #
-      # - image: redis:2.8.19
+      - image: redis:latest
     environment:
       - DB_DATABASE: circle_test
       - DB_USERNAME: root
