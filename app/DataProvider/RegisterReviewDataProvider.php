@@ -42,6 +42,15 @@ class RegisterReviewDataProvider implements RegisterReviewProviderInterface
                     );
                 }
 
+                event(new ReviewRegistered(
+                    $reviewId,
+                    $title,
+                    $content,
+                    $userId,
+                    $createdAt,
+                    $tags
+                ));
+
                 return $reviewId;
             });
     }
