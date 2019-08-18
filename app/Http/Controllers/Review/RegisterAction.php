@@ -30,6 +30,6 @@ final class RegisterAction extends Controller
             $request->get('tags')
         );
 
-        return \response('', Response::HTTP_NO_CONTENT);
+        return response('', Response::HTTP_NO_CONTENT);
     }
 }
