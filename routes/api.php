@@ -21,4 +21,5 @@ $prefix = 'v1';
 Route::group(['prefix' => $prefix], function () {
     Route::get('posts', 'PostsController@index');
     Route::get('posts/{id}', 'PostsController@show');
+    Route::post('review', 'Review\\RegisterAction');
 });
