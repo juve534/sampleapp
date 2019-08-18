@@ -16,5 +16,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Review extends Model
 {
-    //
+    /**
+     * @var bool
+     *
+     * @see Model::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
+     * @var array
+     *
+     * @see Model::$fillable
+     */
+    protected $fillable = [
+        'user_id',
+        'title',
+        'content',
+    ];
 }

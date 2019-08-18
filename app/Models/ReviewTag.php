@@ -16,5 +16,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ReviewTag extends Model
 {
-    //
+    /**
+     * @var bool
+     *
+     * @see Model::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
+     * @var array
+     *
+     * @see Model::$fillable
+     */
+    protected $fillable = [
+        'tag_id',
+        'review_id',
+    ];
 }

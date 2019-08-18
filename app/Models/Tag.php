@@ -16,5 +16,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
-    //
+    /**
+     * @var bool
+     *
+     * @see Model::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
+     * @var array
+     *
+     * @see Model::$fillable
+     */
+    protected $fillable = [
+        'tag_name',
+    ];
 }
