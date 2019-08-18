@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\DataProvider\AddReviewIndexDataProvider;
 use App\DataProvider\RegisterReviewDataProvider;
 use App\Foundation\ElasticsearchClient;
 use Illuminate\Foundation\Application;
@@ -42,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
             $config = $app['config']->get('elasticsearch');
 
             return new ElasticsearchClient($config['hosts']);
+        });
+
+        $this->app->bind(\App\DataProvider\AddReviewIndexProviderInterface::class, function () {
+            return resolve(AddReviewIndexDataProvider::class);
         });
     }
 }
