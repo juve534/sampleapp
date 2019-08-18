@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\ReviewRegistered;
+use App\Listeners\ReviewIndexCreator;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -19,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
         // 会員登録時のイベントリスナー
         'Illuminate\Auth\Event\Registered' => [
             'App\Listeners\RegisteredListener',
+        ],
+        // 口コミ投稿
+        ReviewRegistered::class => [
+            ReviewIndexCreator::class,
         ],
     ];
 
