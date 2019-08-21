@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 
 final class IndexAction extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         $data = Posts::all();
 
