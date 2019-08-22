@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comments query()
  * @mixin \Eloquent
  */
-class Comments extends Model
+final class Comments extends Model
 {
     /**
      * @var array

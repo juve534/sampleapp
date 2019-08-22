@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Comments[] $comments
  * @property mixed                                                           $cached_comments
  */
-class Posts extends Model
+final class Posts extends Model
 {
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
