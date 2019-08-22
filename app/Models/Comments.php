@@ -18,6 +18,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Comments extends Model
 {
+    /**
+     * @var array
+     *
+     * @see Model::$touches
+     */
+    protected $touches = ['posts'];
+
     public function posts()
     {
         return $this->belongsTo(Posts::class);
