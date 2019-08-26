@@ -66,6 +66,9 @@ class PostsTest extends TestCase
         $this->assertSameSize($comment, $posts->cachedComments);
         $this->assertTrue(\Cache::has($key));
 
+        // update_atが同じだとテストがエラーになるため1秒待つ
+        sleep(1);
+
         // setup
         $comment[] = factory(Comments::class)->create(
             [
