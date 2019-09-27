@@ -36,7 +36,7 @@ jobs:
     steps:
       - checkout
       - run: docker-compose up -d
-      - run: curl http://localhost:9200
+      - run: curl elasticsearch
 #      - checkout
 #
 #      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
