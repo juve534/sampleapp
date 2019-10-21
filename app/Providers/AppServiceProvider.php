@@ -48,5 +48,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(\App\DataProvider\AddReviewIndexProviderInterface::class, function () {
             return resolve(AddReviewIndexDataProvider::class);
         });
+
+        $this->app->bind(
+            \GuzzleHttp\ClientInterface::class,
+            \GuzzleHttp\Client::class
+        );
+        $this->app->singleton(
+            \App\Foundation\SendSlackInterface::class,
+            \App\Foundation\SendSlack::class
+        );
     }
 }
