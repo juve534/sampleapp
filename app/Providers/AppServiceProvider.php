@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\DataProvider\AddReviewIndexDataProvider;
 use App\DataProvider\RegisterReviewDataProvider;
 use App\Foundation\ElasticsearchClient;
+use App\Foundation\TwitterClient;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
@@ -53,6 +54,16 @@ class AppServiceProvider extends ServiceProvider
             \GuzzleHttp\ClientInterface::class,
             \GuzzleHttp\Client::class
         );
+
+        $this->app->singleton(\App\Foundation\TwitterClientInterface::class, function () {
+            $consumerKey = env('TWITTER_CONSUMER_KEY');
+            $consumerSecret = env('TWITTER_CONSUMER_SECRET');
+            $accessToken = env('TWITTER_ACCESS_TOKEN');
+            $accessTokenSecret = env('TWITTER_ACCESS_TOKEN_SECRET');
+
+            return new TwitterClient($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
+        });
+
         $this->app->singleton(
             \App\Foundation\SendSlackInterface::class,
             \App\Foundation\SendSlack::class
