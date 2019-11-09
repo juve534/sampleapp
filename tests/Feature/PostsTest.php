@@ -30,40 +30,4 @@ class PostsTest extends TestCase
             $posts
         );
     }
-
-    /**
-     * showメソッドの正常系.
-     *
-     * @test
-     */
-    public function testShow200()
-    {
-        // setup
-        $expected = factory(Posts::class)->create()->toArray();
-        unset($expected['created_at']);
-        unset($expected['updated_at']);
-
-        /** @var \Illuminate\Database\Eloquent\Collection $comments */
-        $comments = factory(Comments::class, 5)->create(
-            [
-                'posts_id' => $expected['id'],
-            ]
-        );
-        $expected['comments'] = $comments->map(function (Comments $item) {
-            $arr['id'] = $item->id;
-            $arr['commenter'] = $item->commenter;
-            $arr['body'] = $item->body;
-
-            return $arr;
-        })->toArray();
-
-        $response = $this->get(self::BASE_URL . '/' . $expected['id']);
-        $response->assertStatus(200);
-        $response->assertHeader('content-type', 'application/json');
-        $response->assertExactJson(
-            [
-                'data' => $expected,
-            ]
-        );
-    }
 }
