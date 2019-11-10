@@ -2,13 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\Comments;
 use App\Models\Posts;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class PostsTest extends TestCase
+class IndexTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
