@@ -21,6 +21,11 @@ use Illuminate\Database\Eloquent\Model;
 final class Posts extends Model
 {
     /**
+     * @see Model::$guarded
+     */
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function comments()
