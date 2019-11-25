@@ -13,7 +13,7 @@ class CreateTest extends TestCase
     use RefreshDatabase;
     use WithFaker;
 
-    const BASE_URL = 'v1/posts';
+    const BASE_URL = 'api/v1/posts';
 
     /**
      * 投稿API成功
