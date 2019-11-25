@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 $prefix = 'v1';
 Route::group(['prefix' => $prefix], function () {
     Route::get('posts', 'Posts\\IndexAction');
+    Route::post('posts', 'Posts\\CreateAction');
     Route::get('posts/{id}', 'Posts\\ShowAction');
     Route::post('review', 'Review\\RegisterAction');
 });
