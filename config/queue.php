@@ -64,6 +64,17 @@ return [
             'retry_after' => 90,
         ],
 
+        'elasticmq' => [
+            'driver'      => 'sqs',
+            'key'         => null,
+            'secret'      => null,
+            'credentials' => false,
+            'endpoint'    => env('ELASTICMQ_ENDPOINT'),
+            'prefix'      => env('SQS_PREFIX'),
+            'queue'       => env('SQS_QUEUE'),
+            'region'      => env('AWS_DEFAULT_REGION', 'us-east-1'),
+        ],
+
     ],
 
     /*
