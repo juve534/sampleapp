@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: PostAPI
+  version: '1.0'
+paths:
+  '/api/v1/posts/{id}':
+    post:
+      summary: ブログ記事の情報を取得する.
+      operationId: 'App\Http\Controllers\Posts\ShowAction::__invoke'
+      parameters:
+        -
+          name: id
+          in: path
+          description: ブログID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { $ref: '#/components/schemas/posts' }
+                type: object
+        '404':
+          description: 'Not Found'
+components:
+  schemas:
+    posts:
+      description: 参照用
+      properties:
+        id:
+          description: ブログID
+          type: integer
+        title:
+          description: ブログタイトル
+          type: string
+        comments:
+          description: コメント者一覧
+          properties:
+            id:
+              description: コメントID
+              type: integer
+            commeter:
+              description: コメントをした人
+              type: string
+            body:
+              description: コメント内容
+              type: string
+          type: object
+      type: object
