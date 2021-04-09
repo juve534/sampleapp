@@ -9,6 +9,4 @@ RUN pecl install xdebug && \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer && \
-    composer config -g repos.packagist composer https://packagist.jp && \
-    composer global require hirak/prestissimo
+    mv composer.phar /usr/local/bin/composer
