@@ -10,14 +10,14 @@
         "elasticsearch/elasticsearch": "^7.2",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "^6.0",
         "laravel/tinker": "~1.0",
         "mpyw/cowitter": "^1.0",
         "predis/predis": "^1.1",
         "zircote/swagger-php": "^3.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.6",
+        "barryvdh/laravel-ide-helper": "2.8",
         "filp/whoops": "~2.0",
         "friendsofphp/php-cs-fixer": "^2.15",
         "fzaninotto/faker": "~1.4",
