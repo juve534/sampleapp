@@ -26,6 +26,8 @@ jobs:
       - checkout
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
+      - run: sudo pecl install pcov
+      - run: sudo docker-php-ext-enable xdebug pcov
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: cp .env.example .env
 
@@ -54,4 +56,9 @@ jobs:
 
       - run: php artisan key:generate
       - run: php artisan migrate
-      - run: vendor/bin/phpunit tests/
+      - run: mkdir -p ~/reports/coverage
+      - run: php -d pcov.enabled=1 ./vendor/bin/phpunit --coverage-html ~/reports/coverage tests/
+      - store_test_results:
+          path: ~/reports
+      - store_artifacts:
+          path: ~/reports
