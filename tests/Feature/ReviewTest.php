@@ -23,9 +23,7 @@ class ReviewTest extends TestCase
      */
     public function testReview200()
     {
-        $this->markTestIncomplete(
-            'このテストはCIで動いていません。'
-        );
+        \Illuminate\Support\Facades\Event::fake();
 
         $user = factory(User::class)->create();
         $param = [
