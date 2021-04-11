@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.3
+      - image: cimg/php:7.3
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -26,9 +26,8 @@ jobs:
       - checkout
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-      - run: sudo pecl install pcov
-      - run: sudo docker-php-ext-enable xdebug pcov
-      - run: sudo docker-php-ext-install zip pdo_mysql
+      - run: sudo pear config-set php_ini /etc/php/7.3/cli/php.ini
+      - run: sudo pecl install pcov xdebug
       - run: cp .env.example .env
 
       # Download and cache dependencies
