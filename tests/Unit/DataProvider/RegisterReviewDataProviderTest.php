@@ -9,6 +9,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Mockery;
 
 class RegisterReviewDataProviderTest extends TestCase
 {
@@ -21,9 +22,7 @@ class RegisterReviewDataProviderTest extends TestCase
      */
     public function testRegisterReviewSuccess()
     {
-        $this->markTestIncomplete(
-            'このテストはCIで動いていません。'
-        );
+        \Illuminate\Support\Facades\Event::fake();
 
         // setup
         $user = factory(User::class)->create();
