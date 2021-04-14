@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   nginx:
@@ -6,8 +6,8 @@ services:
     volumes:
       - ./docker/nginx/:/etc/nginx/conf.d/
       - ./public:/var/www/laravel/public
-    links:
-      - phpfpm
+    networks:
+      - sampleapp_net
     depends_on:
       - phpfpm
   phpfpm:
@@ -15,8 +15,8 @@ services:
     volumes:
       - ./:/var/www/html
       - ./docker/phpfpm/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-    links:
-      - mysql
+    networks:
+      - sampleapp_net
     depends_on:
       - mysql
     environment:
@@ -32,10 +32,16 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DATABASE=homestead
+    networks:
+      - sampleapp_net
+
   redis:
     image: redis:latest
     ports:
       - 6379:6379
+    networks:
+      - sampleapp_net
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.1
     ports:
@@ -43,20 +49,30 @@ services:
       - 9300:9300
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    networks:
+      - sampleapp_net
+
   # ElasticMQ
   elasticmq:
     image: softwaremill/elasticmq
     volumes:
       - ./docker/elasticmq/custom.conf://opt/elasticmq.conf:ro
+    networks:
+      - sampleapp_net
+
   queue-worker:
     image: juve534/php-fpm:7.3
     volumes:
       - ./:/var/www/html
       - ./docker/phpfpm/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-    links:
-      - mysql
+    networks:
+      - sampleapp_net
     depends_on:
       - mysql
       - elasticmq
     command: ["php", "artisan", "queue:work"]
     restart: always
+
+networks:
+  sampleapp_net:
+    driver: bridge
