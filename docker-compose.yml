@@ -11,9 +11,7 @@ services:
     depends_on:
       - phpfpm
   phpfpm:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: juve534/php-fpm:7.3
     volumes:
       - ./:/var/www/html
       - ./docker/phpfpm/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
@@ -51,9 +49,7 @@ services:
     volumes:
       - ./docker/elasticmq/custom.conf://opt/elasticmq.conf:ro
   queue-worker:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: juve534/php-fpm:7.3
     volumes:
       - ./:/var/www/html
       - ./docker/phpfpm/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini

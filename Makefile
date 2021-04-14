@@ -7,14 +7,14 @@ init:
 	docker-compose exec $(container) php artisan key:generate
 	docker-compose exec $(container) php artisan migrate
 
-up:build
+up:
 	docker-compose up -d
 
 down:
 	docker-compose down
 
 build:
-	docker-compose build
+	docker build -t juve534/php-fpm:7.3 .
 
 ps:
 	docker-compose ps
